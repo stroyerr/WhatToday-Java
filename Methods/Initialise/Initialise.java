@@ -34,16 +34,11 @@ public class Initialise {
         List<String> feedData = null;
         try {
             feedData = ReadData.getData();
-            Alert.display("Worked");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Alert.display("Failed");
         }
 
         Properties.feedData = feedData;
-        for(int i = 0; i < Properties.feedData.size(); i++){
-            Alert.display(Properties.feedData.get(i));
-        }
         UpdateData.update();
         DecodeData.decode();
 
