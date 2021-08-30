@@ -6,21 +6,28 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ReadData {
-    public static String[] getData() throws FileNotFoundException {
+
+    private static List<String> loadedData = new ArrayList<String>();
+
+    public static List<String> getData() throws FileNotFoundException {
         BufferedReader inputReader = new BufferedReader(new FileReader("FeedData.txt"));
         String line = null;
-        String[] loadedData = {""};
+        String data = "";
+        int j = loadedData.size();
         while (true) {
             try {
                 if (!((line = inputReader.readLine() ) != null)) break;
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            int j = loadedData.length;
-            Alert.display(" " + j);
-            loadedData[j-1] = loadedData + line;
+            data = line;
+            loadedData.add(data);
+            j++;
         }
         return loadedData;
     }

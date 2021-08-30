@@ -1,8 +1,10 @@
 package com.stroyer.WhatToday.Methods.Initialise;
 
 import com.stroyer.WhatToday.Alerts.Alert;
+import com.stroyer.WhatToday.Methods.Feed.DecodeData;
 import com.stroyer.WhatToday.Methods.Feed.FeedData;
 import com.stroyer.WhatToday.Methods.Feed.ReadData;
+import com.stroyer.WhatToday.Methods.Feed.UpdateData;
 import com.stroyer.WhatToday.Methods.User.User;
 import com.stroyer.WhatToday.Properties;
 
@@ -10,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public class Initialise {
 
@@ -28,7 +31,7 @@ public class Initialise {
 
         Alert.display(ReadData.getRawString());
 
-        String[] feedData = null;
+        List<String> feedData = null;
         try {
             feedData = ReadData.getData();
             Alert.display("Worked");
@@ -37,9 +40,12 @@ public class Initialise {
             Alert.display("Failed");
         }
 
-        for(int i = 0; i < feedData.length; i++){
-            Alert.display(feedData[i]);
+        Properties.feedData = feedData;
+        for(int i = 0; i < Properties.feedData.size(); i++){
+            Alert.display(Properties.feedData.get(i));
         }
+        UpdateData.update();
+        DecodeData.decode();
 
     }
 

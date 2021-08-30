@@ -29,11 +29,11 @@ public class FeedData {
 
         outputWriter = new BufferedWriter(new FileWriter("FeedData.txt"));
             // Maybe:
-            outputWriter.write("˘" + "`"+id+"`"+ "ç"+user.username +"ç"+"Ø"+msg+"Ø" + "˘");
+            outputWriter.write(ReadData.getRawString() + "˘" + "`"+id+"`"+ "ç"+user.username +"ç"+"Ø"+msg+"Ø" + "˘");
             // Or:
             outputWriter.newLine();
         outputWriter.flush();
         outputWriter.close();
-
+        UpdateData.update();
     }
 }
