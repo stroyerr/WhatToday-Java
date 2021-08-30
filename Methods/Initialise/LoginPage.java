@@ -93,6 +93,7 @@ public class LoginPage {
                             interruptedException.printStackTrace();
                         }
                         Home.open();
+                        f.dispose();
                     }else{
                         loginAlerts.setText("<html><p style='color: red'>Invalid credentials.</p></html>");
                         bottom2.setVisible(true);
