@@ -1,6 +1,7 @@
 package com.stroyer.WhatToday.Methods.Initialise;
 
 import com.stroyer.WhatToday.Alerts.Alert;
+import com.stroyer.WhatToday.Methods.Feed.Data.FeedPost;
 import com.stroyer.WhatToday.Methods.Feed.DecodeData;
 import com.stroyer.WhatToday.Methods.Feed.FeedData;
 import com.stroyer.WhatToday.Methods.Feed.ReadData;
@@ -38,9 +39,16 @@ public class Initialise {
             e.printStackTrace();
         }
 
-        Properties.feedData = feedData;
+
         UpdateData.update();
         DecodeData.decode();
+
+        List<FeedPost> fd = Properties.feedPost;
+        Alert.display("initiating");
+        for(int i = 0; i < fd.size(); i ++ ){
+            Alert.display("attempting; " + fd.size());
+            Alert.display("Usr; " + fd.get(i).user.username + ", Msg; " + fd.get(i).msg);
+        }
 
     }
 

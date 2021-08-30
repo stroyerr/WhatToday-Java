@@ -1,5 +1,7 @@
 package com.stroyer.WhatToday.Interfaces;
 
+import com.stroyer.WhatToday.Methods.Feed.GenerateFeed;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +14,7 @@ public class Home {
         f.setLayout(new GridLayout(3, 1));
 
         JPanel top = new JPanel(new GridLayout(1, 2));
-        JPanel middle = new JPanel();
+        JPanel middle = GenerateFeed.begin();
         JPanel bottom = new JPanel(new GridLayout(2,1));
         JPanel navigation = new JPanel(new GridLayout(1, 4));
         JPanel top1 = new JPanel();

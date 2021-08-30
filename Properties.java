@@ -1,7 +1,9 @@
 package com.stroyer.WhatToday;
 
+import com.stroyer.WhatToday.Methods.Feed.Data.FeedPost;
 import com.stroyer.WhatToday.Methods.User.User;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +27,6 @@ public class Properties {
     };
 
     public static List<String> feedData = new ArrayList<String>();
+    public static List<FeedPost> feedPost = new ArrayList<FeedPost>();
 
 }
